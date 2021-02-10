@@ -3,12 +3,12 @@ import QrReader from "react-qr-reader";
 import { useTorchLight } from "@blackbox-vision/use-torch-light";
 
 function App() {
-  const streamRef = useRef(on);
+  const streamRef = useRef(null);
 
   const [error, setError] = useState(null);
   const [data, setData] = useState("No result");
 
-  const [on, toggle] = useTorchLight(streamRef.current);
+  const [on, toggle] = useTorchLight(on);
 
   const setRef = ({ stream }) => {
     streamRef.current = stream;
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-      לא עובד
+      לא עובד k
       <QrReader
         onLoad={setRef}
         onScan={setData}
