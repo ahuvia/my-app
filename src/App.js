@@ -1,11 +1,9 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { useRef, useState } from "react";
 import QrReader from "react-qr-reader";
 import { useTorchLight } from "@blackbox-vision/use-torch-light";
-import { useRef, useState } from "react";
 
 function App() {
-  const streamRef = useRef(null);
+  const streamRef = useRef(on);
 
   const [error, setError] = useState(null);
   const [data, setData] = useState("No result");
@@ -18,6 +16,7 @@ function App() {
 
   return (
     <>
+      לא עובד
       <QrReader
         onLoad={setRef}
         onScan={setData}
