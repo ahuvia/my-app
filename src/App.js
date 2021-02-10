@@ -1,8 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
-import React, { useState, useRef } from "react";
 import QrReader from "react-qr-reader";
 import { useTorchLight } from "@blackbox-vision/use-torch-light";
+import { useRef, useState } from "react";
 
 function App() {
   const streamRef = useRef(null);
