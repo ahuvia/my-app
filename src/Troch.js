@@ -33,7 +33,7 @@ function Troch() {
             .getPhotoCapabilities()
             .then(() => {
               //todo: check if camera has a torch
-              if (camera.torch) {
+              if (camera.torch == true) {
                 //let there be light!
                 const btn = document.querySelector(".switch");
                 btn.addEventListener("click", function () {
@@ -66,7 +66,7 @@ function Troch() {
 
   return (
     <div>
-      <button className="switch">On / Off</button>
+      a a<button className="switch">On / Off</button>
     </div>
   );
 }
