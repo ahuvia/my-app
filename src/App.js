@@ -17,16 +17,16 @@ function App() {
 
   return (
     <>
-      {/* <Troch /> */}
+      <Troch />
       לא עובד
-      {/* <QrReader
+      <QrReader
         onLoad={setRef}
         onScan={setData}
         onError={setError}
         style={{ width: "100%" }}
-      /> */}
-      <button onClick={toggle}>{on ? "Disable Torch" : "Enable Torch"}</button>
-      {/* <p>{JSON.stringify(data, null, 2)}</p>
+      />
+      {/* <button onClick={toggle}>{on ? "Disable Torch" : "Enable Torch"}</button>
+      <p>{JSON.stringify(data, null, 2)}</p>
       <p>{JSON.stringify(error, null, 2)}</p> */}
     </>
   );
