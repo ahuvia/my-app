@@ -33,14 +33,21 @@ function Troch() {
             .getPhotoCapabilities()
             .then(() => {
               //todo: check if camera has a torch
-
               //let there be light!
               const btn = document.querySelector(".switch");
-              btn.addEventListener("click", function () {
-                track.applyConstraints({
-                  advanced: [{ torch: true }],
+              if (btn.torch) {
+                btn.addEventListener("click", function () {
+                  track.applyConstraints({
+                    advanced: [{ torch: false }],
+                  });
                 });
-              });
+              } else {
+                btn.addEventListener("click", function () {
+                  track.applyConstraints({
+                    advanced: [{ torch: true }],
+                  });
+                });
+              }
             });
         });
     });
