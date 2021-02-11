@@ -1,41 +1,44 @@
 import { useRef, useState } from "react";
-import QrReader from "react-qr-reader";
+import { QrReader } from "@blackbox-vision/react-qr-reader";
 import { useTorchLight } from "@blackbox-vision/use-torch-light";
 import Troch from "./Troch";
-import { createTorch } from "@tim-smart/torch";
 
 function App() {
   const streamRef = useRef(null);
+  const [show, setShow] = useState(true);
+  const [data, setData] = useState("NULL");
 
-  const [error, setError] = useState(null);
-  const [data, setData] = useState("No result");
+  console.info(streamRef.current);
 
-  const [on, toggle] = useTorchLight(streamRef.current);
-
-  const setRef = ({ stream }) => {
-    streamRef.current = stream;
-  };
-
-  (async () => {
-    const torch = await createTorch();
-    await torch.on();
-    setTimeout(() => torch.stop(), 5000);
-  })();
+  const [on, toggle] = useTorchLight(streamRef.current, {
+    debug: true,
+    vibrate: 200,
+  });
 
   return (
-    <>
-      {/* <Troch /> */}
-      לא עובד
-      <QrReader
-        onLoad={setRef}
-        onScan={setData}
-        onError={setError}
-        style={{ width: "100%" }}
-      />
-      <button onClick={toggle}>{on ? "Disable Torch" : "Enable Torch"}</button>
-      <p>{JSON.stringify(data, null, 2)}</p>
-      <p>{JSON.stringify(error, null, 2)}</p>
-    </>
+    <div className="App">
+      <button onClick={() => setShow(!show)} style={{ marginBottom: 16 }}>
+        {show ? "Unmount QR Reader" : "Mount QR Reader"}
+      </button>
+      {show && (
+        <QrReader
+          resolution={600}
+          facingMode="environment"
+          onLoad={({ stream }) => (streamRef.current = stream)}
+          onScan={(decoded) => setData(decoded)}
+          onError={(err) => console.info(err)}
+        />
+      )}
+      <button onClick={toggle} style={{ marginTop: 16 }}>
+        {on ? "Disable" : "Enable"} Torch Light
+      </button>
+      <div>
+        <p>
+          El valor del QR es:{" "}
+          {typeof data === "object" ? JSON.stringify(data) : data}
+        </p>
+      </div>
+    </div>
   );
 }
 
