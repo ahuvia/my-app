@@ -2,8 +2,8 @@ import { useRef, useState } from "react";
 import QrReader from "react-qr-reader";
 import { useTorchLight } from "@blackbox-vision/use-torch-light";
 import Troch from "./Troch";
-import logo from "./logo.svg";
-import { ReactFlashlight } from "react-flashlight";
+import { createTorch } from "@tim-smart/torch";
+
 function App() {
   const streamRef = useRef(null);
 
@@ -15,30 +15,26 @@ function App() {
   const setRef = ({ stream }) => {
     streamRef.current = stream;
   };
-  const style = {
-    backgroundImage: `url(${logo})`,
-    height: "90vh",
-    width: "90vw",
-  };
+
+  (async () => {
+    const torch = await createTorch();
+    await torch.on();
+    setTimeout(() => torch.stop(), 5000);
+  })();
 
   return (
     <>
       {/* <Troch /> */}
       לא עובד
-      <header className="App-header">
-        <ReactFlashlight>
-          <div style={style}>Hello, I am a child element.</div>
-        </ReactFlashlight>
-      </header>
-      {/* <QrReader
+      <QrReader
         onLoad={setRef}
         onScan={setData}
         onError={setError}
         style={{ width: "100%" }}
-      /> */}
-      {/* <button onClick={toggle}>{on ? "Disable Torch" : "Enable Torch"}</button>
+      />
+      <button onClick={toggle}>{on ? "Disable Torch" : "Enable Torch"}</button>
       <p>{JSON.stringify(data, null, 2)}</p>
-      <p>{JSON.stringify(error, null, 2)}</p> */}
+      <p>{JSON.stringify(error, null, 2)}</p>
     </>
   );
 }
