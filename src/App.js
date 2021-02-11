@@ -17,8 +17,8 @@ function App() {
 
   return (
     <div className="App">
-      <Troch />
-      {/* <button onClick={() => setShow(!show)} style={{ marginBottom: 16 }}>
+      {/* <Troch /> */}
+      <button onClick={() => setShow(!show)} style={{ marginBottom: 16 }}>
         {show ? "Unmount QR Reader" : "Mount QR Reader"}
       </button>
       {show && (
@@ -38,7 +38,7 @@ function App() {
           El valor del QR es:{" "}
           {typeof data === "object" ? JSON.stringify(data) : data}
         </p>
-      </div> */}
+      </div>
     </div>
   );
 }
