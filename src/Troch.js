@@ -55,15 +55,9 @@ function Troch() {
               //let there be light!
               const btn = document.querySelector(".switch");
               btn.addEventListener("click", function () {
-                if (track.applyConstraints.advanced.torch == false) {
-                  track.applyConstraints({
-                    advanced: [{ FLASH_MODE_TORCH }],
-                  });
-                } else {
-                  track.applyConstraints({
-                    advanced: [{ FLASH_MODE_OFF }],
-                  });
-                }
+                track.applyConstraints({
+                  advanced: [{ torch: true }],
+                });
               });
             });
         });
