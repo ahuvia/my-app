@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Troch() {
   //Test browser support
   const SUPPORTS_MEDIA_DEVICES = "mediaDevices" in navigator;
-
+  const [isOn, setIsOn] = useState(false);
   if (SUPPORTS_MEDIA_DEVICES) {
     //Get the environment camera (usually the second one)
     navigator.mediaDevices.enumerateDevices().then((devices) => {
@@ -37,9 +37,17 @@ function Troch() {
               //let there be light!
               const btn = document.querySelector(".switch");
               btn.addEventListener("click", function () {
-                track.applyConstraints({
-                  advanced: [{ torch: true }],
-                });
+                if (isOn) {
+                  setIsOn(false);
+                  track.applyConstraints({
+                    advanced: [{ torch: isOn }],
+                  });
+                } else {
+                  setIsOn(true);
+                  track.applyConstraints({
+                    advanced: [{ torch: isOn }],
+                  });
+                }
               });
             });
         });
