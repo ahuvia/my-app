@@ -57,11 +57,11 @@ function Troch() {
               btn.addEventListener("click", function () {
                 if (track.applyConstraints.advanced.torch == false) {
                   track.applyConstraints({
-                    advanced: [{ torch: true }],
+                    advanced: [{ FLASH_MODE_TORCH }],
                   });
                 } else {
                   track.applyConstraints({
-                    advanced: [{ torch: false }],
+                    advanced: [{ FLASH_MODE_OFF }],
                   });
                 }
               });
