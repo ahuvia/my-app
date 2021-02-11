@@ -3,7 +3,7 @@ import React from "react";
 function Troch() {
   //Test browser support
   const SUPPORTS_MEDIA_DEVICES = "mediaDevices" in navigator;
-
+  const isOn = false;
   if (SUPPORTS_MEDIA_DEVICES) {
     //Get the environment camera (usually the second one)
     navigator.mediaDevices.enumerateDevices().then((devices) => {
@@ -35,13 +35,15 @@ function Troch() {
               //todo: check if camera has a torch
               //let there be light!
               const btn = document.querySelector(".switch");
-              if (btn.torch) {
+              if (isOn) {
+                isOn = false;
                 btn.addEventListener("click", function () {
                   track.applyConstraints({
                     advanced: [{ torch: false }],
                   });
                 });
               } else {
+                isOn = true;
                 btn.addEventListener("click", function () {
                   track.applyConstraints({
                     advanced: [{ torch: true }],
