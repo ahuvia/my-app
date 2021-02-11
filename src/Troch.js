@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Troch() {
   //Test browser support
   const SUPPORTS_MEDIA_DEVICES = "mediaDevices" in navigator;
-
+  const [isOn, setIsOn] = useState(initialState);
   if (SUPPORTS_MEDIA_DEVICES) {
     //Get the environment camera (usually the second one)
     navigator.mediaDevices.enumerateDevices().then((devices) => {
@@ -33,8 +33,9 @@ function Troch() {
             .getPhotoCapabilities()
             .then(() => {
               //todo: check if camera has a torch
-              if (camera.torch == true) {
+              if (isOn) {
                 //let there be light!
+                setIsOn(false);
                 const btn = document.querySelector(".switch");
                 btn.addEventListener("click", function () {
                   track.applyConstraints({
@@ -43,6 +44,7 @@ function Troch() {
                 });
               } else {
                 //let there be light!
+                setIsOn(true);
                 const btn = document.querySelector(".switch");
                 btn.addEventListener("click", function () {
                   track.applyConstraints({
@@ -66,7 +68,7 @@ function Troch() {
 
   return (
     <div>
-      a a<button className="switch">On / Off</button>
+      <button className="switch">On / Off</button>
     </div>
   );
 }
