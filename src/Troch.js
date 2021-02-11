@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 function Troch() {
   //Test browser support
   const SUPPORTS_MEDIA_DEVICES = "mediaDevices" in navigator;
-  const [isOn, setIsOn] = useState(false);
+
   if (SUPPORTS_MEDIA_DEVICES) {
     //Get the environment camera (usually the second one)
     navigator.mediaDevices.enumerateDevices().then((devices) => {
@@ -33,37 +33,14 @@ function Troch() {
             .getPhotoCapabilities()
             .then(() => {
               //todo: check if camera has a torch
-              if (isOn) {
-                setIsOn(false);
-                const btn = document.querySelector(".switch");
-                btn.addEventListener("click", function () {
-                  track.applyConstraints({
-                    advanced: [{ torch: false }],
-                  });
-                });
-              } else {
-                setIsOn(false);
-                const btn = document.querySelector(".switch");
-                btn.addEventListener("click", function () {
-                  track.applyConstraints({
-                    advanced: [{ torch: false }],
-                  });
-                });
-              }
+
               //let there be light!
-              // const btn = document.querySelector(".switch");
-              // btn.addEventListener("click", function () {
-              //   if (isOn) {
-              //     setIsOn(false);
-              //     track.applyConstraints({
-              //       advanced: [{ torch: false }],
-              //     });
-              // } else {
-              //   setIsOn(true);
-              //   track.applyConstraints({
-              //     advanced: [{ torch: true }],
-              //   });
-              // }
+              const btn = document.querySelector(".switch");
+              btn.addEventListener("click", function () {
+                track.applyConstraints({
+                  advanced: [{ torch: true }],
+                });
+              });
             });
         });
     });
@@ -72,8 +49,7 @@ function Troch() {
   }
 
   return (
-    <div className="mt-10 ml-3">
-      aaa
+    <div>
       <button className="switch">On / Off</button>
     </div>
   );
