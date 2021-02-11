@@ -33,22 +33,37 @@ function Troch() {
             .getPhotoCapabilities()
             .then(() => {
               //todo: check if camera has a torch
-
-              //let there be light!
-              const btn = document.querySelector(".switch");
-              btn.addEventListener("click", function () {
-                if (isOn) {
-                  setIsOn(false);
+              if (isOn) {
+                setIsOn(false);
+                const btn = document.querySelector(".switch");
+                btn.addEventListener("click", function () {
                   track.applyConstraints({
                     advanced: [{ torch: false }],
                   });
-                } else {
-                  setIsOn(true);
+                });
+              } else {
+                setIsOn(false);
+                const btn = document.querySelector(".switch");
+                btn.addEventListener("click", function () {
                   track.applyConstraints({
-                    advanced: [{ torch: true }],
+                    advanced: [{ torch: false }],
                   });
-                }
-              });
+                });
+              }
+              //let there be light!
+              // const btn = document.querySelector(".switch");
+              // btn.addEventListener("click", function () {
+              //   if (isOn) {
+              //     setIsOn(false);
+              //     track.applyConstraints({
+              //       advanced: [{ torch: false }],
+              //     });
+              // } else {
+              //   setIsOn(true);
+              //   track.applyConstraints({
+              //     advanced: [{ torch: true }],
+              //   });
+              // }
             });
         });
     });
@@ -57,7 +72,8 @@ function Troch() {
   }
 
   return (
-    <div>
+    <div className="mt-10 ml-3">
+      aaa
       <button className="switch">On / Off</button>
     </div>
   );
