@@ -40,12 +40,12 @@ function Troch() {
                 if (isOn) {
                   setIsOn(false);
                   track.applyConstraints({
-                    advanced: [{ torch: isOn }],
+                    advanced: [{ torch: false }],
                   });
                 } else {
                   setIsOn(true);
                   track.applyConstraints({
-                    advanced: [{ torch: isOn }],
+                    advanced: [{ torch: true }],
                   });
                 }
               });
