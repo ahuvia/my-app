@@ -33,31 +33,41 @@ function Troch() {
           const photoCapabilities = imageCapture
             .getPhotoCapabilities()
             .then(() => {
+              // //todo: check if camera has a torch
+              // // if (isOn) {
+              // //   //let there be light!
+              // //   setIsOn(false);
+              // //   const btn = document.querySelector(".switch");
+              // //   btn.addEventListener("click", function () {
+              // //     track.applyConstraints({
+              // //       advanced: [{ torch: false }],
+              // //     });
+              // //   });
+              // // } else {
+              // //   //let there be light!
+              // //   setIsOn(true);
+              // //   const btn = document.querySelector(".switch");
+              // //   btn.addEventListener("click", function () {
+              // //     track.applyConstraints({
+              // //       advanced: [{ torch: true }],
+              // //     });
+              // //   });
+              // // }
+              // //let there be light!
+              // const btn = document.querySelector(".switch");
+              // btn.addEventListener("click", function () {
+              //   track.applyConstraints({
+              //     advanced: [{ torch: true }],
+              //   });
+              // });
               //todo: check if camera has a torch
-              // if (isOn) {
-              //   //let there be light!
-              //   setIsOn(false);
-              //   const btn = document.querySelector(".switch");
-              //   btn.addEventListener("click", function () {
-              //     track.applyConstraints({
-              //       advanced: [{ torch: false }],
-              //     });
-              //   });
-              // } else {
-              //   //let there be light!
-              //   setIsOn(true);
-              //   const btn = document.querySelector(".switch");
-              //   btn.addEventListener("click", function () {
-              //     track.applyConstraints({
-              //       advanced: [{ torch: true }],
-              //     });
-              //   });
-              // }
+              let state = false;
               //let there be light!
               const btn = document.querySelector(".switch");
               btn.addEventListener("click", function () {
+                state = !state;
                 track.applyConstraints({
-                  advanced: [{ torch: true }],
+                  advanced: [{ torch: state }],
                 });
               });
             });
