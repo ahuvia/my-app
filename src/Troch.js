@@ -4,6 +4,7 @@ function Troch() {
   //Test browser support
   const SUPPORTS_MEDIA_DEVICES = "mediaDevices" in navigator;
   const [isOn, setIsOn] = useState(false);
+
   if (SUPPORTS_MEDIA_DEVICES) {
     //Get the environment camera (usually the second one)
     navigator.mediaDevices.enumerateDevices().then((devices) => {
