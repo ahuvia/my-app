@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Troch() {
+function Torch() {
   //Test browser support
   const SUPPORTS_MEDIA_DEVICES = "mediaDevices" in navigator;
   const [isOn, setIsOn] = useState(false);
@@ -84,4 +84,4 @@ function Troch() {
   );
 }
 
-export default Troch;
+export default Torch;
