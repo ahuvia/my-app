@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import QrReader from "react-qr-reader";
 import { useTorchLight } from "@blackbox-vision/use-torch-light";
-import Troch from "./Troch";
+import Torch from "./Torch";
 
 function App() {
   const streamRef = useRef(null);
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      <Troch />
+      <Torch />
 
       <QrReader
         onLoad={setRef}

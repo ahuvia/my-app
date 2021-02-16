@@ -53,23 +53,23 @@ function Troch() {
               // //     });
               // //   });
               // // }
-              // //let there be light!
-              // const btn = document.querySelector(".switch");
-              // btn.addEventListener("click", function () {
-              //   track.applyConstraints({
-              //     advanced: [{ torch: true }],
-              //   });
-              // });
-              //todo: check if camera has a torch
-              let state = false;
               //let there be light!
               const btn = document.querySelector(".switch");
               btn.addEventListener("click", function () {
-                state = !state;
                 track.applyConstraints({
-                  advanced: [{ torch: state }],
+                  advanced: [{ torch: true }],
                 });
               });
+              //todo: check if camera has a torch
+              // let state = false;
+              // //let there be light!
+              // const btn = document.querySelector(".switch");
+              // btn.addEventListener("click", function () {
+              //   state = !state;
+              //   track.applyConstraints({
+              //     advanced: [{ torch: state }],
+              //   });
+              // });
             });
         });
     });
