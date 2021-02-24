@@ -2,32 +2,21 @@ import { useRef, useState } from "react";
 import QrReader from "react-qr-reader";
 import { useTorchLight } from "@blackbox-vision/use-torch-light";
 import Troch from "./Troch";
-
+import BarcodeScannerComponent from "react-webcam-barcode-scanner";
 function App() {
-  const streamRef = useRef(null);
-
-  const [error, setError] = useState(null);
-  const [data, setData] = useState("No result");
-
-  const [on, toggle] = useTorchLight(streamRef.current);
-
-  const setRef = ({ stream }) => {
-    streamRef.current = stream;
-  };
+  const [data, setData] = React.useState("Not Found");
 
   return (
     <>
-      <Troch />
-
-      <QrReader
-        onLoad={setRef}
-        onScan={setData}
-        onError={setError}
-        style={{ width: "100%" }}
+      <BarcodeScannerComponent
+        width={500}
+        height={500}
+        onUpdate={(err, result) => {
+          if (result) setData(result.text);
+          else setData("Not Found");
+        }}
       />
-      {/* <button onClick={toggle}>{on ? "Disable Torch" : "Enable Torch"}</button> */}
-      <p>{JSON.stringify(data, null, 2)}</p>
-      <p>{JSON.stringify(error, null, 2)}</p>
+      <p>{data}</p>
     </>
   );
 }
