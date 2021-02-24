@@ -1,9 +1,5 @@
 import { useRef, useState } from "react";
-import QrReader from "react-qr-reader";
-import { useTorchLight } from "@blackbox-vision/use-torch-light";
-import Troch from "./Troch";
 import BarcodeScannerComponent from "react-webcam-barcode-scanner";
-import Torch from "./Torch";
 
 function App() {
   const [data, setData] = React.useState("Not Found");
