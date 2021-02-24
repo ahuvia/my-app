@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Troch() {
+function Torch() {
   //Test browser support
   const SUPPORTS_MEDIA_DEVICES = "mediaDevices" in navigator;
   const [isOn, setIsOn] = useState(false);
@@ -53,7 +53,7 @@ function Troch() {
               // //     });
               // //   });
               // // }
-              // //let there be light!
+              //let there be light!
               // const btn = document.querySelector(".switch");
               // btn.addEventListener("click", function () {
               //   track.applyConstraints({
@@ -84,4 +84,4 @@ function Troch() {
   );
 }
 
-export default Troch;
+export default Torch;
