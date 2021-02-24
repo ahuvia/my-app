@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import BarcodeScannerComponent from "react-webcam-barcode-scanner";
+import BarcodeScannerComponent from "react-webcam-barcode-scanner2";
 import React from "react";
 function App() {
   const [data, setData] = React.useState("Not Found");
