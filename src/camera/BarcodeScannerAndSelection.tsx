@@ -89,6 +89,7 @@ function BarcodeScannerAndSelection(props: IBarcodeScannerProps) {
             {selectedDevices.map((device, index) => (
               <MenuItem key={`menuitem${index}`} value={device}>
                 מצלמה {index + 1}
+                {device}
               </MenuItem>
             ))}
           </Select>
