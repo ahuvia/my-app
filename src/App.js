@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import QrReader from "react-qr-reader";
 import { useTorchLight } from "@blackbox-vision/use-torch-light";
 import Torch from "./Torch";
+import ScanQr from "./camera/ScanQr";
 
 function App() {
   const streamRef = useRef(null);
@@ -17,7 +18,8 @@ function App() {
 
   return (
     <>
-      <Torch />
+      <ScanQr />
+      {/* <Torch /> */}
 
       {/* <QrReader
         onLoad={setRef}
@@ -26,8 +28,8 @@ function App() {
         style={{ width: "100%" }}
       /> */}
       {/* <button onClick={toggle}>{on ? "Disable Torch" : "Enable Torch"}</button> */}
-      <p>{JSON.stringify(data, null, 2)}</p>
-      <p>{JSON.stringify(error, null, 2)}</p>
+      {/* <p>{JSON.stringify(data, null, 2)}</p>
+      <p>{JSON.stringify(error, null, 2)}</p> */}
     </>
   );
 }

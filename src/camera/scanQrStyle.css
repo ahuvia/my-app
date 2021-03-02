@@ -1,0 +1,50 @@
+.scan-qr {
+  text-align: center;
+  /* color: white; */
+}
+
+.title {
+  margin-top: 2rem;
+  font-weight: lighter;
+}
+
+.corner {
+  width: 17rem;
+  height: 17rem;
+  margin: 0 auto;
+  background: linear-gradient(
+        to right,
+        rgb(109, 145, 160) 0.3rem,
+        transparent 0.3rem
+      )
+      0 0,
+    linear-gradient(to right, rgb(109, 145, 160) 0.3rem, transparent 0.3rem) 0
+      100%,
+    linear-gradient(to left, rgb(109, 145, 160) 0.3rem, transparent 0.3rem) 100%
+      0,
+    linear-gradient(to left, rgb(109, 145, 160) 0.3rem, transparent 0.3rem) 100%
+      100%,
+    linear-gradient(to bottom, rgb(109, 145, 160) 0.3rem, transparent 0.3rem) 0
+      0,
+    linear-gradient(to bottom, rgb(109, 145, 160) 0.3rem, transparent 0.3rem)
+      100% 0,
+    linear-gradient(to top, rgb(109, 145, 160) 0.3rem, transparent 0.3rem) 0
+      100%,
+    linear-gradient(to top, rgb(109, 145, 160) 0.3rem, transparent 0.3rem) 100%
+      100%;
+
+  background-repeat: no-repeat;
+  background-size: 4rem 4rem;
+}
+
+.help {
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+.description {
+  font-weight: 100;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
