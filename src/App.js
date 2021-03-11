@@ -22,7 +22,7 @@ function App() {
         delay={300}
         onScan={(data) => setData(data)}
         onError={handleError(data)}
-        style={{ width: "30%" }}
+        style={{ width: "90%" }}
       />
       {data}
 
