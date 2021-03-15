@@ -6,6 +6,7 @@ import QrReader from "react-qr-reader";
 
 // import BarcodeScannerComponent from "react-webcam-barcode-scanner2";
 import React from "react";
+const tiny = require("@ahuvia/tiny");
 
 function App() {
   const [data, setData] = useState("Not Found");
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <div>
+      {tiny("אהוביה שני")}
       {/* <ScanQr /> */}
       {/* <Torch /> */}
       <QrReader

@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ahuvia/tiny": "^5.0.1",
     "@blackbox-vision/react-qr-reader": "^3.0.1",
     "@blackbox-vision/use-torch-light": "0.0.2",
     "@material-ui/core": "^4.11.3",
