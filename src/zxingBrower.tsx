@@ -18,7 +18,10 @@ export default function ZxingBrower() {
       if (result) {
         // properly decoded qr code
         console.log("Found QR code!", result);
-        setresult(result);
+        setresult(result.toString());
+      }
+      if(err){
+          console.log(err)
       }
     });
   };
