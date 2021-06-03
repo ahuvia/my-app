@@ -1,5 +1,6 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import QrReader from "react-scan-qr";
+import jsQR from "jsqr";
 // import { useTorchLight } from "@blackbox-vision/use-torch-light";
 // import Torch from "./Torch";
 import ScanQr from "./camera/ScanQr";
@@ -15,12 +16,94 @@ function App() {
   const handleError = (err) => {
     console.error(err);
   };
+  const width = 400;
+  const height = 400;
+  const tryy = async () => {
+    // var video = document.querySelector("#videoElement");
+    const mediaStream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: "environment" },
+    });
+    // const video = document.createElement("video");
+    const video = document.getElementById("vid");
 
-  
+    if ("srcObject" in video) {
+      video.srcObject = mediaStream;
+      // const code = jsQR(mediaStream.getVideoTracks(), width, height);
 
+      // if (code) {
+      //   console.log("Found QR code", code);
+      // }
+    } else {
+      video.src = URL.createObjectURL(mediaStream);
+    }
+
+    const currentDiv = document.getElementById("div1");
+    video.autoplay = true;
+    // currentDiv.appendChild(video);
+  };
+
+  const canvas = () => {
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var video = document.getElementById("vid");
+
+    // set canvas size = video size when known
+    video.addEventListener("loadedmetadata", function () {
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+    });
+    // const u = new Uint8ClampedArray(40000);
+    // const arr = new ImageData(100, 100, canvas);
+    // const code = jsQR(arr, width, height);
+
+    // if (code) {
+    //   console.log("Found QR code", code);
+    // }
+    video.addEventListener(
+      "play",
+      function () {
+        var $this = this; //cache
+        (function loop() {
+          if (!$this.paused && !$this.ended) {
+            ctx.drawImage($this, 0, 0);
+            setTimeout(loop, 1000 / 30); // drawing at 30fps
+          }
+        })();
+      },
+      0
+    );
+  };
+
+  useEffect(() => {
+    tryy();
+    canvas();
+  }, []);
   return (
     <div>
-  
+      <div id="div1"></div>
+      <video
+        style={{ width: "500px", height: "375px", backgroundColor: "#666" }}
+        autoPlay={true}
+        id="vid"
+      ></video>
+
+      <div id="theater">
+        {/* <video
+          id="video"
+          src="http://upload.wikimedia.org/wikipedia/commons/7/79/Big_Buck_Bunny_small.ogv"
+          controls="false"
+        ></video> */}
+        <canvas
+          id="canvas"
+          // src="http://upload.wikimedia.org/wikipedia/commons/7/79/Big_Buck_Bunny_small.ogv"
+          // controls="false"
+        ></canvas>
+        <label>
+          <br />
+          Try to play me :)
+        </label>
+        <br />
+      </div>
       {/* {tiny("אהוביה שני")} */}
       {/* <ScanQr /> */}
       {/* <Torch /> */}
@@ -31,7 +114,7 @@ function App() {
         style={{ width: "90%" }}
       />
       {data} */}
-<ZxingBrower/>
+      {/* <ZxingBrower/> */}
       {/* <button onClick={toggle}>{on ? "Disable Torch" : "Enable Torch"}</button> */}
       {/* <p>{JSON.stringify(data, null, 2)}</p>
       <p>{JSON.stringify(error, null, 2)}</p> */}
