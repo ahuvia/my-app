@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import QrReader from "react-scan-qr";
 import jsQR from "jsqr";
+import JsQr from "./JsQr";
 // import { useTorchLight } from "@blackbox-vision/use-torch-light";
 // import Torch from "./Torch";
 import ScanQr from "./camera/ScanQr";
@@ -28,11 +29,6 @@ function App() {
 
     if ("srcObject" in video) {
       video.srcObject = mediaStream;
-      // const code = jsQR(mediaStream.getVideoTracks(), width, height);
-
-      // if (code) {
-      //   console.log("Found QR code", code);
-      // }
     } else {
       video.src = URL.createObjectURL(mediaStream);
     }
@@ -52,13 +48,7 @@ function App() {
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
     });
-    // const u = new Uint8ClampedArray(40000);
-    // const arr = new ImageData(100, 100, canvas);
-    // const code = jsQR(arr, width, height);
 
-    // if (code) {
-    //   console.log("Found QR code", code);
-    // }
     video.addEventListener(
       "play",
       function () {
@@ -75,17 +65,18 @@ function App() {
   };
 
   useEffect(() => {
-    tryy();
-    canvas();
+    // tryy();
+    // canvas();
   }, []);
   return (
     <div>
+      <JsQr />
       <div id="div1"></div>
-      <video
+      {/* <video
         style={{ width: "500px", height: "375px", backgroundColor: "#666" }}
         autoPlay={true}
         id="vid"
-      ></video>
+      ></video> */}
 
       <div id="theater">
         {/* <video
