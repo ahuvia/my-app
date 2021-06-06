@@ -18,7 +18,7 @@ export default function JsQr() {
     const mediaStream = await navigator.mediaDevices.getUserMedia({
       video: { facingMode: "environment" },
     });
-    const videoTag = document.createElement("video");
+    const videoTag = document.getElementById("videoo");
     videoTag.autoplay = true;
     videoTag.height = 350;
     videoTag.width = 350;
@@ -28,7 +28,7 @@ export default function JsQr() {
       videoTag.src = URL.createObjectURL(mediaStream);
     }
 
-    const canvasTag = document.getElementById("canvass");
+    const canvasTag = document.createElement("canvas");
     setInterval(() => {
       let ctx = canvasTag.getContext("2d");
       ctx.drawImage(videoTag, 0, 0, 350, 350);
@@ -67,9 +67,9 @@ export default function JsQr() {
 
   return (
     <div style={{ textAlign: "-webkit-center" }}>
-      <canvas id="canvass" width="350" height="350"></canvas>
-      <div>{qr}</div>
       <video id="videoo" width="350" height="350" autoPlay></video>
+      <div>{qr}</div>
+      <canvas id="canvass" width="350" height="350"></canvas>
     </div>
   );
 }
