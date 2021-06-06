@@ -20,8 +20,8 @@ export default function JsQr() {
     });
     const videoTag = document.createElement("video");
     videoTag.autoplay = true;
-    videoTag.height = 240;
-    videoTag.width = 240;
+    videoTag.height = 350;
+    videoTag.width = 350;
     if ("srcObject" in videoTag) {
       videoTag.srcObject = mediaStream;
     } else {
@@ -31,7 +31,7 @@ export default function JsQr() {
     const canvasTag = document.getElementById("canvass");
     setInterval(() => {
       let ctx = canvasTag.getContext("2d");
-      ctx.drawImage(videoTag, 0, 0, 240, 240);
+      ctx.drawImage(videoTag, 0, 0, 350, 350);
       ctx.strokeStyle = "red";
 
       //   ctx.strokeRect(
@@ -67,9 +67,9 @@ export default function JsQr() {
 
   return (
     <div style={{ textAlign: "-webkit-center" }}>
-      <canvas id="canvass" width="240" height="240"></canvas>
+      <canvas id="canvass" width="350" height="350"></canvas>
       <div>{qr}</div>
-      <video id="videoo" width="240" height="240" autoPlay></video>
+      <video id="videoo" width="350" height="350" autoPlay></video>
     </div>
   );
 }
