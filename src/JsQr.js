@@ -18,7 +18,10 @@ export default function JsQr() {
     const mediaStream = await navigator.mediaDevices.getUserMedia({
       video: { facingMode: "environment" },
     });
-    const videoTag = document.getElementById("videoo");
+    const videoTag = document.createElement("video");
+    videoTag.autoplay = true;
+    videoTag.height = 240;
+    videoTag.width = 240;
     if ("srcObject" in videoTag) {
       videoTag.srcObject = mediaStream;
     } else {
@@ -28,16 +31,16 @@ export default function JsQr() {
     const canvasTag = document.getElementById("canvass");
     setInterval(() => {
       let ctx = canvasTag.getContext("2d");
-      ctx.drawImage(videoTag, 0, 0, 320, 240);
+      ctx.drawImage(videoTag, 0, 0, 240, 240);
       ctx.strokeStyle = "red";
 
-      ctx.strokeRect(
-        captureArea.x,
-        captureArea.y,
-        captureArea.width,
-        captureArea.height
-      );
-    }, 100);
+      //   ctx.strokeRect(
+      //     captureArea.x,
+      //     captureArea.y,
+      //     captureArea.width,
+      //     captureArea.height
+      //   );
+    }, 1);
 
     setInterval(() => {
       let imageData = canvasTag
@@ -59,14 +62,14 @@ export default function JsQr() {
         // let resultPage = document.querySelector('#result .qr-code-data');
         // resultPage.innerHTML = qrCode.data;
       }
-    }, 100);
+    }, 1);
   };
 
   return (
-    <div>
-      <canvas id="canvass" width="320" height="240"></canvas>
-      {qr}
-      <video id="videoo" width="320" height="240" autoPlay></video>
+    <div style={{ textAlign: "-webkit-center" }}>
+      <canvas id="canvass" width="240" height="240"></canvas>
+      <div>{qr}</div>
+      <video id="videoo" width="240" height="240" autoPlay></video>
     </div>
   );
 }
