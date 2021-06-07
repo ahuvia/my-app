@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import QrReader from "react-scan-qr";
 import jsQR from "jsqr";
 import JsQr from "./JsQr";
+import JsQR2 from "./jsQR2";
 // import { useTorchLight } from "@blackbox-vision/use-torch-light";
 // import Torch from "./Torch";
 import ScanQr from "./camera/ScanQr";
@@ -71,6 +72,7 @@ function App() {
   return (
     <div>
       <JsQr />
+      {/* <JsQR2/> */}
       <div id="div1"></div>
       {/* <video
         style={{ width: "500px", height: "375px", backgroundColor: "#666" }}

@@ -5,18 +5,25 @@ export default function JsQr() {
   const canvasTag = document.getElementById("canvass");
   const [qr, setqr] = useState("");
   const captureArea = {
-    x: 100,
-    y: 60,
-    width: 120,
-    height: 120,
+    x: 1,
+    y: 1,
+    width: 349,
+    height: 349,
   };
   useEffect(() => {
     webcam();
   }, []);
 
   const webcam = async () => {
+    const videoConstraints = {
+      facingMode: "environment",
+    };
+    const constraints = {
+      video: videoConstraints,
+      audio: false,
+    };
     const mediaStream = await navigator.mediaDevices.getUserMedia({
-      video: { facingMode: "environment" },
+      video: { facingMode: "environment", frameRate: { ideal: 10, max: 15 } },
     });
     const videoTag = document.createElement("video");
     videoTag.autoplay = true;
@@ -32,14 +39,14 @@ export default function JsQr() {
     setInterval(() => {
       let ctx = canvasTag.getContext("2d");
       ctx.drawImage(videoTag, 0, 0, 350, 350);
-      ctx.strokeStyle = "red";
+      // ctx.strokeStyle = "red";
 
-      //   ctx.strokeRect(
-      //     captureArea.x,
-      //     captureArea.y,
-      //     captureArea.width,
-      //     captureArea.height
-      //   );
+      // ctx.strokeRect(
+      //   captureArea.x,
+      //   captureArea.y,
+      //   captureArea.width,
+      //   captureArea.height
+      // );
     }, 1);
 
     setInterval(() => {
