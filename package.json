@@ -12,6 +12,7 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.6.3",
     "@tim-smart/torch": "^1.0.1",
+    "@zxing/browser": "0.0.9",
     "@zxing/library": "^0.18.3",
     "axios": "^0.21.1",
     "react": "^17.0.1",
