@@ -16,7 +16,7 @@ export default function JsQr() {
 
   const webcam = async () => {
     const mediaStream = await navigator.mediaDevices.getUserMedia({
-      video: { facingMode: "environment", zoom: 2, tilt: 0, pan:0 },
+      video: { facingMode: "environment", zoom: {exact:0, ideal:3}, tilt: 0, pan:0 },
       //, frameRate: { ideal: 24, max: 30 }
     });
     const videoTag = document.getElementById("videoo");
