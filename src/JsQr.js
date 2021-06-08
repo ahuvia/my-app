@@ -15,13 +15,6 @@ export default function JsQr() {
   }, []);
 
   const webcam = async () => {
-    const videoConstraints = {
-      facingMode: "environment",
-    };
-    const constraints = {
-      video: videoConstraints,
-      audio: false,
-    };
     const mediaStream = await navigator.mediaDevices.getUserMedia({
       video: { facingMode: "environment", frameRate: { ideal: 10, max: 15 } },
     });
@@ -47,7 +40,7 @@ export default function JsQr() {
       //   captureArea.width,
       //   captureArea.height
       // );
-    }, 1);
+    }, 100);
 
     setInterval(() => {
       let imageData = canvasTag
@@ -69,7 +62,7 @@ export default function JsQr() {
         // let resultPage = document.querySelector('#result .qr-code-data');
         // resultPage.innerHTML = qrCode.data;
       }
-    }, 1);
+    }, 100);
   };
 
   return (
