@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import jsQR from "jsqr";
 export default function JsQr() {
-  const videoTag = document.getElementById("videoo");
-  const canvasTag = document.getElementById("canvass");
   const [qr, setqr] = useState("");
   const captureArea = {
     x: 1,
@@ -16,7 +14,7 @@ export default function JsQr() {
 
   const webcam = async () => {
     const constraints = {
-      video: { facingMode: "environment", zoom: 2, tilt: 0, pan: 0 },
+      video: { facingMode: "environment", zoom: 3, tilt: 0, pan: 0 },
       //  , frameRate: { ideal: 24, max: 30 }
     };
 
@@ -40,7 +38,7 @@ export default function JsQr() {
     canvasTag.height = 350;
     setInterval(() => {
       let ctx = canvasTag.getContext("2d")!;
-      ctx.drawImage(videoTag, 0, 0, 350, 350);
+      ctx.drawImage(videoTag, 1, 1, 349, 349);
       // ctx.strokeStyle = "red";
 
       // ctx.strokeRect(
