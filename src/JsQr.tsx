@@ -16,9 +16,9 @@ export default function JsQr() {
 
   const webcam = async () => {
     const constraints = {
-      video: { facingMode: "environment", zoom: 3, tilt: 0, pan: 0} 
-    //  , frameRate: { ideal: 24, max: 30 }
-    }
+      video: { facingMode: "environment", zoom: 2, tilt: 0, pan: 0 },
+      //  , frameRate: { ideal: 24, max: 30 }
+    };
 
     const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
     const videoTag = document.getElementById("videoo") as HTMLVideoElement;
@@ -29,7 +29,7 @@ export default function JsQr() {
     videoTag.setAttribute("muted", "");
     videoTag.setAttribute("playsinline", "");
     // if ("srcObject" in videoTag) {
-      videoTag.srcObject = mediaStream;
+    videoTag.srcObject = mediaStream;
     // } else {
     //   videoTag.src = URL.createObjectURL(mediaStream);
     // }
@@ -73,7 +73,7 @@ export default function JsQr() {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <video id="videoo"></video>
+      <video id="videoo" style={{ width: "auto" }}></video>
       <div>{qr}</div>
       {/* <canvas id="canvass" width="350" height="350"></canvas> */}
     </div>
