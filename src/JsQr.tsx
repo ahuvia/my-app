@@ -15,29 +15,31 @@ export default function JsQr() {
   }, []);
 
   const webcam = async () => {
-    const mediaStream = await navigator.mediaDevices.getUserMedia({
-      video: { facingMode: "environment", zoom: 3.5, tilt: 0, pan:0 },
-      //, frameRate: { ideal: 24, max: 30 }
-    });
-    const videoTag = document.getElementById("videoo");
+    const constraints = {
+      video: { facingMode: "environment", zoom: 3, tilt: 0, pan: 0} 
+    //  , frameRate: { ideal: 24, max: 30 }
+    }
+
+    const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
+    const videoTag = document.getElementById("videoo") as HTMLVideoElement;
     videoTag.autoplay = true;
     videoTag.height = 350;
     videoTag.width = 350;
     videoTag.setAttribute("autoplay", "");
     videoTag.setAttribute("muted", "");
     videoTag.setAttribute("playsinline", "");
-    if ("srcObject" in videoTag) {
+    // if ("srcObject" in videoTag) {
       videoTag.srcObject = mediaStream;
-    } else {
-      videoTag.src = URL.createObjectURL(mediaStream);
-    }
+    // } else {
+    //   videoTag.src = URL.createObjectURL(mediaStream);
+    // }
 
     // const canvasTag = document.getElementById("canvass");
     var canvasTag = document.createElement("canvas");
     canvasTag.width = 350;
     canvasTag.height = 350;
     setInterval(() => {
-      let ctx = canvasTag.getContext("2d");
+      let ctx = canvasTag.getContext("2d")!;
       ctx.drawImage(videoTag, 0, 0, 350, 350);
       // ctx.strokeStyle = "red";
 
@@ -51,7 +53,7 @@ export default function JsQr() {
 
     setInterval(() => {
       let imageData = canvasTag
-        .getContext("2d")
+        .getContext("2d")!
         .getImageData(
           captureArea.x,
           captureArea.y,
@@ -65,18 +67,15 @@ export default function JsQr() {
       if (qrCode) {
         console.log(qrCode);
         setqr(qrCode.data);
-        // router.redirect(Router.pages.result, qrCode);
-        // let resultPage = document.querySelector('#result .qr-code-data');
-        // resultPage.innerHTML = qrCode.data;
       }
     }, 100);
   };
 
   return (
-    <div style={{ textAlign: "-webkit-center" }}>
-      <video id="videoo" width="350" height="350" autoPlay></video>
+    <div style={{ textAlign: "center" }}>
+      <video id="videoo"></video>
       <div>{qr}</div>
-      <canvas id="canvass" width="350" height="350"></canvas>
+      {/* <canvas id="canvass" width="350" height="350"></canvas> */}
     </div>
   );
 }
