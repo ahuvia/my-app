@@ -38,7 +38,10 @@ export default function JsQr() {
     canvasTag.height = 350;
     setInterval(() => {
       let ctx = canvasTag.getContext("2d")!;
-      ctx.drawImage(videoTag, 1, 1, 349, 349);
+        // console.log(window.screen.width,window.screen.height)
+      // console.log(window.screen.width/100*50,1,window.screen.height/100*50)
+      ctx.drawImage(videoTag, 0, 0,window.screen.width/100*60,window.screen.width/100*60);
+      // ctx.drawImage(videoTag, 1, 1, 349, 349);
       // ctx.strokeStyle = "red";
 
       // ctx.strokeRect(
