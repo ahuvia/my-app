@@ -65,6 +65,8 @@ export default function JsQr() {
       if (qrCode) {
         console.log(qrCode);
         setqr(qrCode.data);
+        mediaStream.getVideoTracks()[0].stop()
+        mediaStream.getTracks().forEach(track => track.stop())
       }
     }, 100);
   };
