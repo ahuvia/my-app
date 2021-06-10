@@ -21,8 +21,8 @@ export default function JsQr() {
     const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
     const videoTag = document.getElementById("videoo") as HTMLVideoElement;
     videoTag.autoplay = true;
-    videoTag.setAttribute("height", "300");
-    videoTag.setAttribute("width", "300");
+    videoTag.height = 350;
+    videoTag.width = 350;
     videoTag.setAttribute("autoplay", "");
     videoTag.setAttribute("muted", "");
     videoTag.setAttribute("playsinline", "");
@@ -34,11 +34,11 @@ export default function JsQr() {
 
     // const canvasTag = document.getElementById("canvass");
     var canvasTag = document.createElement("canvas");
-    canvasTag.width =  canvasTag.width;
-    canvasTag.height =  canvasTag.height;
+    canvasTag.width = 350;
+    canvasTag.height = 350;
     setInterval(() => {
       let ctx = canvasTag.getContext("2d")!;
-      ctx.drawImage(videoTag, 1, 1, canvasTag.width, canvasTag.height);
+      ctx.drawImage(videoTag, 1, 1, 349, 349);
       // ctx.strokeStyle = "red";
 
       // ctx.strokeRect(
