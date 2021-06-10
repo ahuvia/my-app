@@ -40,7 +40,7 @@ export default function JsQr() {
       let ctx = canvasTag.getContext("2d")!;
         // console.log(window.screen.width,window.screen.height)
       // console.log(window.screen.width/100*50,1,window.screen.height/100*50)
-      ctx.drawImage(videoTag, 0, 0,window.screen.width/100*60,window.screen.width/100*60);
+      ctx.drawImage(videoTag, 0, 0,window.screen.width/100*80,window.screen.width/100*80);
       // ctx.drawImage(videoTag, 1, 1, 349, 349);
       // ctx.strokeStyle = "red";
 
