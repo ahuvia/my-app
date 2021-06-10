@@ -14,15 +14,15 @@ export default function JsQr() {
 
   const webcam = async () => {
     const constraints = {
-      video: { facingMode: "environment", zoom: 3, tilt: 0, pan: 0 },
+      video: { facingMode: "environment", zoom: 2, tilt: 0, pan: 0 },
       //  , frameRate: { ideal: 24, max: 30 }
     };
 
     const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
     const videoTag = document.getElementById("videoo") as HTMLVideoElement;
     videoTag.autoplay = true;
-    videoTag.height = 350;
-    videoTag.width = 350;
+    videoTag.setAttribute("height", "100%");
+    videoTag.setAttribute("width", "100%");
     videoTag.setAttribute("autoplay", "");
     videoTag.setAttribute("muted", "");
     videoTag.setAttribute("playsinline", "");
@@ -34,11 +34,11 @@ export default function JsQr() {
 
     // const canvasTag = document.getElementById("canvass");
     var canvasTag = document.createElement("canvas");
-    canvasTag.width = 350;
-    canvasTag.height = 350;
+    canvasTag.width =  canvasTag.width;
+    canvasTag.height =  canvasTag.height;
     setInterval(() => {
       let ctx = canvasTag.getContext("2d")!;
-      ctx.drawImage(videoTag, 1, 1, 349, 349);
+      ctx.drawImage(videoTag, 1, 1, canvasTag.width, canvasTag.height);
       // ctx.strokeStyle = "red";
 
       // ctx.strokeRect(
