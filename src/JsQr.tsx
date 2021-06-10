@@ -21,8 +21,8 @@ export default function JsQr() {
     const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
     const videoTag = document.getElementById("videoo") as HTMLVideoElement;
     videoTag.autoplay = true;
-    videoTag.setAttribute("height", "100%");
-    videoTag.setAttribute("width", "100%");
+    videoTag.setAttribute("height", "300");
+    videoTag.setAttribute("width", "300");
     videoTag.setAttribute("autoplay", "");
     videoTag.setAttribute("muted", "");
     videoTag.setAttribute("playsinline", "");
