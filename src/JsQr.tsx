@@ -5,8 +5,8 @@ export default function JsQr() {
   const captureArea = {
     x: 1,
     y: 1,
-    width: 349,
-    height: 349,
+    width: 289,
+    height: 289,
   };
   useEffect(() => {
     webcam();
@@ -21,8 +21,8 @@ export default function JsQr() {
     const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
     const videoTag = document.getElementById("videoo") as HTMLVideoElement;
     videoTag.autoplay = true;
-    videoTag.height = 350;
-    videoTag.width = 350;
+    videoTag.height = 290;
+    videoTag.width = 290;
     videoTag.setAttribute("autoplay", "");
     videoTag.setAttribute("muted", "");
     videoTag.setAttribute("playsinline", "");
@@ -38,8 +38,8 @@ export default function JsQr() {
     canvasTag.height = 350;
     setInterval(() => {
       let ctx = canvasTag.getContext("2d")!;
-        console.log(window.screen.width,window.screen.height)
-      console.log(window.screen.width/100*80,1,window.screen.height/100*50)
+      //   console.log(window.screen.width,window.screen.height)
+      // console.log(window.screen.width/100*80,1,window.screen.height/100*50)
       ctx.drawImage(videoTag, 0, 0,window.screen.width/100*80,window.screen.width/100*80);
       // ctx.drawImage(videoTag, 1, 1, 349, 349);
       // ctx.strokeStyle = "red";
