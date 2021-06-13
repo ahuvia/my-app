@@ -14,14 +14,13 @@ export default function JsQr() {
 
   const webcam = async () => {
     const constraints = {
-      torch:true,
-      video: { facingMode: "environment"}//,zoom:3, tilt: -3600, pan: -3600, frameRate :{ ideal: 25, min: 10 }  },
+      video: { facingMode: "environment", zoom: 3, torch: true },
       //  , frameRate: { ideal: 24, max: 30 }
     };
 
     const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
     const track = mediaStream.getVideoTracks()[0];
-    track.applyConstraints({ advanced : [{}] });
+    track.applyConstraints({ advanced: [{}] });
     const videoTag = document.getElementById("videoo") as HTMLVideoElement;
     videoTag.autoplay = true;
     videoTag.height = 290;
@@ -43,7 +42,13 @@ export default function JsQr() {
       let ctx = canvasTag.getContext("2d")!;
       //   console.log(window.screen.width,window.screen.height)
       // console.log(window.screen.width/100*80,1,window.screen.height/100*50)
-      ctx.drawImage(videoTag, 0, 0,window.screen.width/100*80,window.screen.width/100*80);
+      ctx.drawImage(
+        videoTag,
+        0,
+        0,
+        (window.screen.width / 100) * 80,
+        (window.screen.width / 100) * 80
+      );
       // ctx.drawImage(videoTag, 1, 1, 349, 349);
       // ctx.strokeStyle = "red";
 
@@ -71,7 +76,7 @@ export default function JsQr() {
       if (qrCode) {
         console.log(qrCode);
         setqr(qrCode.data);
-        mediaStream.getVideoTracks()[0].stop()
+        mediaStream.getVideoTracks()[0].stop();
         // mediaStream.getTracks().forEach(track => track.stop())
       }
     }, 100);
