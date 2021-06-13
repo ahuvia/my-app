@@ -14,12 +14,13 @@ export default function JsQr() {
 
   const webcam = async () => {
     const constraints = {
-      video: { facingMode: "environment", zoom: 3, torch: true },
+      video: { facingMode: "environment", zoom: 10 },
       //  , frameRate: { ideal: 24, max: 30 }
     };
 
     const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
     const track = mediaStream.getVideoTracks()[0];
+    console.log( track.getSettings())
     track.applyConstraints({ advanced: [{}] });
     const videoTag = document.getElementById("videoo") as HTMLVideoElement;
     videoTag.autoplay = true;
