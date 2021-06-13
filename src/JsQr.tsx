@@ -14,7 +14,7 @@ export default function JsQr() {
 
   const webcam = async () => {
     const constraints = {
-      video: { facingMode: "environment", zoom: 2, tilt: 0, pan: 0 },
+      video: { facingMode: "environment",  zoom:1, tilt: -3600, pan: -3600   },
       //  , frameRate: { ideal: 24, max: 30 }
     };
 
@@ -38,8 +38,8 @@ export default function JsQr() {
     canvasTag.height = 350;
     setInterval(() => {
       let ctx = canvasTag.getContext("2d")!;
-        // console.log(window.screen.width,window.screen.height)
-      // console.log(window.screen.width/100*50,1,window.screen.height/100*50)
+        console.log(window.screen.width,window.screen.height)
+      console.log(window.screen.width/100*80,1,window.screen.height/100*50)
       ctx.drawImage(videoTag, 0, 0,window.screen.width/100*80,window.screen.width/100*80);
       // ctx.drawImage(videoTag, 1, 1, 349, 349);
       // ctx.strokeStyle = "red";
