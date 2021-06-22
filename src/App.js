@@ -15,20 +15,63 @@ const tiny = require("@ahuvia/tiny");
 function App() {
   const [data, setData] = useState("Not Found");
 
-  const input = document.getElementById("input");
-  const canvas = document.getElementById("canvas");
+  const handleError = (err) => {
+    console.error(err);
+  };
+  const width = 400;
+  const height = 400;
+  const tryy = async () => {
+    // var video = document.querySelector("#videoElement");
+    const mediaStream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: "environment" },
+    });
+    // const video = document.createElement("video");
+    const video = document.getElementById("vid");
 
-  useEffect(() => {}, []);
+    if ("srcObject" in video) {
+      video.srcObject = mediaStream;
+    } else {
+      video.src = URL.createObjectURL(mediaStream);
+    }
+
+    const currentDiv = document.getElementById("div1");
+    video.autoplay = true;
+    // currentDiv.appendChild(video);
+  };
+
+  const canvas = () => {
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var video = document.getElementById("vid");
+
+    // set canvas size = video size when known
+    video.addEventListener("loadedmetadata", function () {
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+    });
+
+    video.addEventListener(
+      "play",
+      function () {
+        var $this = this; //cache
+        (function loop() {
+          if (!$this.paused && !$this.ended) {
+            ctx.drawImage($this, 0, 0);
+            setTimeout(loop, 1000 / 30); // drawing at 30fps
+          }
+        })();
+      },
+      0
+    );
+  };
+
+  useEffect(() => {
+    // tryy();
+    // canvas();
+  }, []);
   return (
     <div>
-      <input
-        id="input"
-        type="file"
-        name="video"
-        accept="image/*;capture=camera"
-      ></input>
-      <canvas id="canvas"></canvas>
-      {/* <JsQr /> */}
+      <JsQr />
       {/* <JsQR2/> */}
       <div id="div1"></div>
       {/* <video
