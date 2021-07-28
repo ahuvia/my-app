@@ -23,7 +23,8 @@ function App() {
   const tryy = async () => {
     // var video = document.querySelector("#videoElement");
     const mediaStream = await navigator.mediaDevices.getUserMedia({
-      video: { facingMode: "environment" },
+      video: { facingMode: "environment" 
+      , frameRate: { ideal: 24, max: 30 }}
     });
     // const video = document.createElement("video");
     const video = document.getElementById("vid");
