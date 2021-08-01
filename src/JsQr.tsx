@@ -14,7 +14,7 @@ export default function JsQr() {
 
   const webcam = async () => {
     const constraints = {
-      video: { facingMode: "environment", zoom: 3.0 },
+      video: { facingMode: "environment", zoom: 3.0, torch:true },
       //  , frameRate: { ideal: 24, max: 30 }
     };
 
