@@ -14,8 +14,7 @@ export default function JsQr() {
 
   const webcam = async () => {
     const constraints = {
-      video: { facingMode: "environment", zoom: 3.0, torch:true },
-      //  , frameRate: { ideal: 24, max: 30 }
+      video: { facingMode: "environment", zoom: 3.0,frameRate: 60}
     };
 
     const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
@@ -31,6 +30,7 @@ export default function JsQr() {
     videoTag.setAttribute("playsinline", "");
     // if ("srcObject" in videoTag) {
     videoTag.srcObject = mediaStream;
+    
     // } else {
     //   videoTag.src = URL.createObjectURL(mediaStream);
     // }
@@ -59,9 +59,9 @@ export default function JsQr() {
       //   captureArea.width,
       //   captureArea.height
       // );
-    }, 100);
+    // }, 100);
 
-    setInterval(() => {
+    // setInterval(() => {
       let imageData = canvasTag
         .getContext("2d")!
         .getImageData(
