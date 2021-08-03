@@ -14,7 +14,7 @@ export default function JsQr() {
 
   const webcam = async () => {
     const constraints = {
-      video: { facingMode: "environment", zoom: 2.0,width: {ideal: 1920}, height: {ideal: 1080}}
+      video: { facingMode: "environment", zoom: 2.0,width: {exact: 1280}, height: {exact: 720}}
     };
 
     const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
