@@ -25,8 +25,8 @@ export default function JsQr() {
     track.applyConstraints({ advanced: [{}] });
     const videoTag = document.getElementById("videoo") as HTMLVideoElement;
     videoTag.autoplay = true;
-    videoTag.height = 290;
-    videoTag.width = 290;
+    // videoTag.height = 290;
+    // videoTag.width = 290;
     videoTag.setAttribute("autoplay", "");
     videoTag.setAttribute("muted", "");
     videoTag.setAttribute("playsinline", "");
