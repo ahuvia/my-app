@@ -15,7 +15,7 @@ export default function JsQr() {
   const webcam = async () => {
     const constraints = {
       video: { facingMode: "environment", zoom: 2.0,
-      width: {ideal: 1280}, height: {ideal: 720},
+      width: {ideal: 640}, height: {ideal: 480},
       frameRate: 90}
     };
 
@@ -87,7 +87,9 @@ export default function JsQr() {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <video id="videoo" style={{ width: "auto" }}></video>
+      <video id="videoo"
+      //  style={{ width: "auto" }}
+       ></video>
       <div>{qr}</div>
       {/* <canvas id="canvass" width="350" height="350"></canvas> */}
     </div>
