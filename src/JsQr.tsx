@@ -88,7 +88,7 @@ export default function JsQr() {
   return (
     <div style={{ textAlign: "center" }}>
       <video id="videoo"
-      //  style={{ width: "auto" }}
+       style={{ width: "auto" }}
        ></video>
       <div>{qr}</div>
       {/* <canvas id="canvass" width="350" height="350"></canvas> */}
