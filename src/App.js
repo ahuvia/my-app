@@ -73,6 +73,7 @@ function App() {
   return (
     <div>
       <JsQr />
+      <JsQr />
       {/* <JsQR2/> */}
       <div id="div1"></div>
       {/* <video
