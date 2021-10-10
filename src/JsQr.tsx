@@ -28,7 +28,7 @@ export default function JsQr() {
     const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
     const track = mediaStream.getVideoTracks()[0];
     console.log( track.getSettings())
-    track.applyConstraints({ advanced: [{}] });
+    
     const videoTag = document.getElementById("videoo") as HTMLVideoElement;
     videoTag.autoplay = true;
     // videoTag.height = 290;
@@ -43,10 +43,10 @@ export default function JsQr() {
    //@ts-ignore
   //  const imageCapture = new ImageCapture(track);
   //  imageCapture.getPhotoCapabilities() 
-  track.applyConstraints({
-     //@ts-ignore
-     advanced: [{ torch: torch }],
-   });
+  // track.applyConstraints({
+  //    //@ts-ignore
+  //    advanced: [{ torch: torch }],
+  //  });
   
  
     // } else {
