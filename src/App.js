@@ -72,8 +72,7 @@ function App() {
   }, []);
   return (
     <div>
-      <JsQr />
-      <JsQr />
+      {/* <JsQr /> */}
       {/* <JsQR2/> */}
       <div id="div1"></div>
       {/* <video
@@ -101,7 +100,7 @@ function App() {
       </div>
       {/* {tiny("אהוביה שני")} */}
       {/* <ScanQr /> */}
-      {/* <Torch /> */}
+      <Torch />
       {/* <QrReader
         delay={300}
         onScan={(data) => setData(data)}
