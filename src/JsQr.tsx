@@ -49,7 +49,7 @@ export default function JsQr() {
       const btn = document.querySelector(".switch") as HTMLElement;
       btn.addEventListener("click", function () {
         state = !state;
-      setTorch(torch!)
+      setTorch(!torch)
         track.applyConstraints({
           //@ts-ignore
           advanced: [{ torch: state }],
@@ -119,7 +119,7 @@ export default function JsQr() {
       <video id="videoo"
        style={{ width: "auto" }}
        ></video>
-       <button className="switch" > {torch}פנס</button>
+       <button className="switch" >פנס</button>
       <div>{qr}</div>
       {/* <canvas id="canvass" width="350" height="350"></canvas> */}
     </div>
