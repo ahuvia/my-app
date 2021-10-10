@@ -4,7 +4,7 @@ import jsQR from "jsqr";
 import JsQr from "./JsQr";
 import JsQR2 from "./jsQR2";
 // import { useTorchLight } from "@blackbox-vision/use-torch-light";
-// import Torch from "./Torch";
+ import Torch from "./Torch";
 import ScanQr from "./camera/ScanQr";
 import "./icon.css";
 // import BarcodeScannerComponent from "react-webcam-barcode-scanner2";
