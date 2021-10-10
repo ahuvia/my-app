@@ -41,8 +41,21 @@ export default function JsQr() {
     
   
    //@ts-ignore
-  //  const imageCapture = new ImageCapture(track);
-  //  imageCapture.getPhotoCapabilities() 
+   const imageCapture = new ImageCapture(track);
+   const photoCapabilities = imageCapture
+     .getPhotoCapabilities()
+     .then(() => { let state = false;
+      //let there be light!
+      const btn = document.querySelector(".switch") as HTMLElement;
+      btn.addEventListener("click", function () {
+        state = !state;
+      setTorch(torch!)
+        track.applyConstraints({
+          //@ts-ignore
+          advanced: [{ torch: state }],
+        });
+      });
+    });
   // track.applyConstraints({
   //    //@ts-ignore
   //    advanced: [{ torch: torch }],
@@ -106,7 +119,7 @@ export default function JsQr() {
       <video id="videoo"
        style={{ width: "auto" }}
        ></video>
-       <button onClick={()=>setTorch(torch!)}> {torch}פנס</button>
+       <button className="switch" > {torch}פנס</button>
       <div>{qr}</div>
       {/* <canvas id="canvass" width="350" height="350"></canvas> */}
     </div>
