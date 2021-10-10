@@ -39,6 +39,16 @@ export default function JsQr() {
     // if ("srcObject" in videoTag) {
     videoTag.srcObject = mediaStream;
     
+  
+   //@ts-ignore
+  //  const imageCapture = new ImageCapture(track);
+  //  imageCapture.getPhotoCapabilities() 
+  track.applyConstraints({
+     //@ts-ignore
+     advanced: [{ torch: torch }],
+   });
+  
+ 
     // } else {
     //   videoTag.src = URL.createObjectURL(mediaStream);
     // }
@@ -96,7 +106,7 @@ export default function JsQr() {
       <video id="videoo"
        style={{ width: "auto" }}
        ></video>
-       <button onClick={()=>setTorch(false)}>פנס</button>
+       <button onClick={()=>setTorch(torch!)}> {torch}פנס</button>
       <div>{qr}</div>
       {/* <canvas id="canvass" width="350" height="350"></canvas> */}
     </div>
