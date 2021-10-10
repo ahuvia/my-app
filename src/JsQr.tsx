@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import jsQR from "jsqr";
 export default function JsQr() {
+  const [torch, setTorch] = useState(false)
   const [qr, setqr] = useState("");
   const captureArea = {
     x: 1,
@@ -20,7 +21,8 @@ export default function JsQr() {
          width: { min: 1024, ideal: 1280, max: 1920 },
          height: { min: 576, ideal: 720, max: 1080 },
       optimizationMode:'detail',
-      frameRate: 90}
+      frameRate: 90},
+      advanced: [{torch: torch}]
     };
 
     const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
@@ -94,6 +96,7 @@ export default function JsQr() {
       <video id="videoo"
        style={{ width: "auto" }}
        ></video>
+       <button onClick={()=>setTorch(false)}>פנס</button>
       <div>{qr}</div>
       {/* <canvas id="canvass" width="350" height="350"></canvas> */}
     </div>
