@@ -47,23 +47,23 @@ export default function JsQr() {
     }
   
    //@ts-ignore
-  //  const imageCapture = new ImageCapture(track);
-  //  const photoCapabilities = imageCapture
-  //    .getPhotoCapabilities()
-  //    .then(() => { let state = false;
-  //     //let there be light!
-  //     const btn = document.querySelector(".switch") as HTMLElement;
-  //     btn.addEventListener("click", function () {
-  //       state = !state;
-  //        //@ts-ignore
-  //       // document.getElementById('video').srcObject.getVideoTracks()[0].applyConstraints({ advanced: [{ torch: state }] });
-  //     setTorch(!torch)
-  //       track.applyConstraints({
-  //         //@ts-ignore
-  //         advanced: [{ torch: state }],
-  //       });
-  //     });
-  //   });
+   const imageCapture = new ImageCapture(track);
+   const photoCapabilities = imageCapture
+     .getPhotoCapabilities()
+     .then(() => { let state = false;
+      //let there be light!
+      const btn = document.querySelector(".switch") as HTMLElement;
+      btn.addEventListener("click", function () {
+        state = !state;
+         //@ts-ignore
+        // document.getElementById('video').srcObject.getVideoTracks()[0].applyConstraints({ advanced: [{ torch: state }] });
+      setTorch(!torch)
+        track.applyConstraints({
+          //@ts-ignore
+          advanced: [{ torch: state }],
+        });
+      });
+    });
   // track.applyConstraints({
   //    //@ts-ignore
   //    advanced: [{ torch: torch }],
@@ -121,19 +121,14 @@ export default function JsQr() {
       }
     }, 100);
   };
-  const offOn =()=>{
-    let state = false;
-    state = !state;
-    //@ts-ignore
-       document.getElementById('video').srcObject.getVideoTracks()[0].applyConstraints({ advanced: [{ torch: state }] });
-  }
+
 
   return (
     <div style={{ textAlign: "center" }}>
       <video id="videoo"
        style={{ width: "auto" }}
        ></video>
-       <button onClick={()=> offOn} className="switch" >פנססס</button>
+       <button  className="switch" >פנסס</button>
       <div>{qr}</div>
       {/* <canvas id="canvass" width="350" height="350"></canvas> */}
     </div>
