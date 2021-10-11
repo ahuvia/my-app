@@ -49,6 +49,8 @@ export default function JsQr() {
       const btn = document.querySelector(".switch") as HTMLElement;
       btn.addEventListener("click", function () {
         state = !state;
+         //@ts-ignore
+        document.getElementById('video').srcObject.getVideoTracks()[0].applyConstraints({ advanced: [{ torch: state }] });
       setTorch(!torch)
         track.applyConstraints({
           //@ts-ignore
