@@ -18,8 +18,8 @@ export default function JsQr() {
       video: { 
         facingMode: ( "environment"? "environment": "user"),
          zoom: 2.0,
-         width: { min: 1024, ideal: 1280, max: 1920 },
-         height: { min: 576, ideal: 720, max: 1080 },
+         width: 700,//{ min: 1024, ideal: 1280, max: 1920 },
+         height: 700,// { min: 576, ideal: 720, max: 1080 },
       optimizationMode:'detail',
       frameRate: 90},
       advanced: [{torch: torch}]
@@ -50,7 +50,7 @@ export default function JsQr() {
       btn.addEventListener("click", function () {
         state = !state;
          //@ts-ignore
-        document.getElementById('video').srcObject.getVideoTracks()[0].applyConstraints({ advanced: [{ torch: state }] });
+        // document.getElementById('video').srcObject.getVideoTracks()[0].applyConstraints({ advanced: [{ torch: state }] });
       setTorch(!torch)
         track.applyConstraints({
           //@ts-ignore
@@ -121,7 +121,7 @@ export default function JsQr() {
       <video id="videoo"
        style={{ width: "auto" }}
        ></video>
-       <button className="switch" >פנס</button>
+       <button className="switch" >פנסס</button>
       <div>{qr}</div>
       {/* <canvas id="canvass" width="350" height="350"></canvas> */}
     </div>
