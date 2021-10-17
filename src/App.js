@@ -4,13 +4,13 @@ import jsQR from "jsqr";
 import JsQr from "./JsQr";
 import JsQR2 from "./jsQR2";
 // import { useTorchLight } from "@blackbox-vision/use-torch-light";
- import Torch2 from "./Torch2";
+import Torch2 from "./Torch2";
 import ScanQr from "./camera/ScanQr";
 import "./icon.css";
 // import BarcodeScannerComponent from "react-webcam-barcode-scanner2";
 import React from "react";
 import ZxingBrower from "./zxingBrower";
-import Camera from "Camera";
+import Camera from "./Camera";
 const tiny = require("@ahuvia/tiny");
 
 function App() {
@@ -24,8 +24,7 @@ function App() {
   const tryy = async () => {
     // var video = document.querySelector("#videoElement");
     const mediaStream = await navigator.mediaDevices.getUserMedia({
-      video: { facingMode: "environment" 
-      , frameRate: { ideal: 24, max: 30 }}
+      video: { facingMode: "environment", frameRate: { ideal: 24, max: 30 } },
     });
     // const video = document.createElement("video");
     const video = document.getElementById("vid");
@@ -73,7 +72,7 @@ function App() {
   }, []);
   return (
     <div>
-      <Camera/>
+      <Camera />
       {/* <JsQr /> */}
       {/* <JsQR2/> */}
       <div id="div1"></div>
