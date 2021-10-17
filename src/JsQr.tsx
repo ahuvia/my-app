@@ -129,8 +129,6 @@ export default function JsQr() {
        style={{ width: "auto" }}
        ></video>
        <button  className="switch" >פנסס</button>
-      <div>{qr}</div>
-      {/* <canvas id="canvass" width="350" height="350"></canvas> */}
     </div>
   );
 }
