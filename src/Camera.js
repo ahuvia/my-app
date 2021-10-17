@@ -49,7 +49,6 @@ export default function Camera() {
     <div>
      <video id="gum-local" autoplay playsinline></video>
     <button id="showVideo">Open camera</button>
-      <div>{qr}</div>
       {/* <canvas id="canvass" width="350" height="350"></canvas> */}
     </div>
     
