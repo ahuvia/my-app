@@ -10,7 +10,7 @@ import "./icon.css";
 // import BarcodeScannerComponent from "react-webcam-barcode-scanner2";
 import React from "react";
 import ZxingBrower from "./zxingBrower";
-import Camera from "./camera";
+import Camera from "Camera";
 const tiny = require("@ahuvia/tiny");
 
 function App() {
