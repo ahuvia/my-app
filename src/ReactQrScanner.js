@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import QrReader from "react-qr-scanner";
+import QrReader from "react-qr-reader";
 
 export default function ReactQrScanner() {
   const [delay, setdelay] = useState(100);
@@ -19,8 +19,8 @@ export default function ReactQrScanner() {
       <QrReader
         delay={delay}
         style={previewStyle}
-        // facingMode={rear}
-        constraints={constraints}
+        facingMode='environment'
+        // constraints={constraints}
         onError={(err)=>handleError(err)}
         lagacyMode={true}
         onScan={(res) => {
