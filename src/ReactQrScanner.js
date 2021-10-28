@@ -18,7 +18,7 @@ export default function ReactQrScanner() {
         delay={delay}
         style={previewStyle}
         onError={(err)=>handleError(err)}
-        facingMode={"rear"}
+        facingMode="rear"
         onScan={(res) => {
           console.log(res)
           if(res)
