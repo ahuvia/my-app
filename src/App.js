@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import QrReader from "react-scan-qr";
+import ReactQrScanner from "./ReactQrScanner";
 import jsQR from "jsqr";
 import JsQr from "./JsQr";
 import JsQR2 from "./jsQR2";
@@ -72,7 +73,8 @@ function App() {
   }, []);
   return (
     <div>
-      <Camera />
+      {/* <Camera /> */}
+      <ReactQrScanner/>
       {/* <JsQr /> */}
       {/* <JsQR2/> */}
       <div id="div1"></div>
