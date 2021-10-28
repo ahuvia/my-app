@@ -27,6 +27,7 @@ export default function ReactQrScanner() {
         }}
       />
       <p>{result}u</p>
+      <di>aaaaaaaa</di>
     </div>
   );
 }
