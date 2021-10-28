@@ -18,7 +18,7 @@ export default function ReactQrScanner() {
       <QrReader
         delay={delay}
         style={previewStyle}
-        facingMode='front'
+        // facingMode='front'
         onError={(err)=>handleError(err)}
         lagacyMode={true}
         onScan={(res) => {
@@ -28,7 +28,7 @@ export default function ReactQrScanner() {
         }}
       />
       <p>{result}u</p>
-      <di>rrrrrr</di>
+      <di>דדדדד</di>
     </div>
   );
 }
