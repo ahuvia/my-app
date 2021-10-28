@@ -25,12 +25,17 @@ export default function ReactQrScanner() {
         showViewFinder={false}
         onScan={(res) => {
           console.log(res)
-          if(res)
+           if(res)
            setresult(res)
         }}
       />
-      <p>{result}u</p>
-      <di>sss</di>
+     <div>
+       <br></br>
+       <br></br>
+       <br></br>
+     <p>{result}u</p>
+      <div>sss</div>
+     </div>
     </div>
   );
 }
