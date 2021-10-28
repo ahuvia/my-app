@@ -125,6 +125,7 @@ export default function JsQr() {
 
   return (
     <div style={{ textAlign: "center" }}>
+      <h3>JSQR</h3>
       <video id="videoo"
        style={{ width: "auto" }}
        ></video>

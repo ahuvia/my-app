@@ -16,6 +16,7 @@ const tiny = require("@ahuvia/tiny");
 
 function App() {
   const [data, setData] = useState("Not Found");
+  const [isJsQr, setIsJsQr] = useState(jsQR? true: false)
 
   const handleError = (err) => {
     console.error(err);
@@ -67,14 +68,18 @@ function App() {
     );
   };
 
+//   if(jsQR){
+// setIsJsQr(true)
+//   }
   useEffect(() => {
     // tryy();
     // canvas();
   }, []);
   return (
     <div>
+      {isJsQr?(<JsQr />):(<ReactQrScanner/>)}
       {/* <Camera /> */}
-      <ReactQrScanner/>
+      {/* <ReactQrScanner/> */}
       {/* <JsQr /> */}
       {/* <JsQR2/> */}
       <div id="div1"></div>

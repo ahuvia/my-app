@@ -14,10 +14,11 @@ export default function ReactQrScanner() {
   }
   return (
     <div>
+      <h3>React-qr-acanner</h3>
       <QrReader
         delay={delay}
         style={previewStyle}
-        facingMode='environment'
+        facingMode='front'
         onError={(err)=>handleError(err)}
         lagacyMode={true}
         onScan={(res) => {
