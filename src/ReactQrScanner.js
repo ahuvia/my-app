@@ -12,13 +12,15 @@ export default function ReactQrScanner() {
     height: 240,
     width: 320,
   }
+  const constraints = {vidoe:{facingMode:"environment"}}
   return (
     <div>
       <h3>React-qr-acanner</h3>
       <QrReader
         delay={delay}
         style={previewStyle}
-         facingMode={rear}
+        // facingMode={rear}
+        constraints={constraints}
         onError={(err)=>handleError(err)}
         lagacyMode={true}
         onScan={(res) => {
