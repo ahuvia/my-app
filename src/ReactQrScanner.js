@@ -17,16 +17,16 @@ export default function ReactQrScanner() {
     <div>
       <h3>React-qr-acanner</h3>
       <QrReader
-        delay={delay}
+        delay={1}
         style={previewStyle}
         facingMode='environment'
         // constraints={constraints}
         onError={(err)=>handleError(err)}
-        lagacyMode={true}
+        showViewFinder={false}
         onScan={(res) => {
           console.log(res)
           if(res)
-           setresult(res.text)
+           setresult(res)
         }}
       />
       <p>{result}u</p>
