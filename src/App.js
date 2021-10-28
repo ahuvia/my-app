@@ -16,7 +16,7 @@ const tiny = require("@ahuvia/tiny");
 
 function App() {
   const [data, setData] = useState("Not Found");
-  const [isJsQr, setIsJsQr] = useState(jsQR? true: false)
+  const [isJsQr, setIsJsQr] = useState(!jsQR? true: false)
 
   const handleError = (err) => {
     console.error(err);
