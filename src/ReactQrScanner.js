@@ -10,7 +10,7 @@ export default function ReactQrScanner() {
   }
   const previewStyle = {
     height: 240,
-    width: 320,
+    width: 240,
   }
   const constraints = {vidoe:{facingMode:"environment"}}
   return (
