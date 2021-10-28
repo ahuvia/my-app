@@ -17,7 +17,7 @@ export default function ReactQrScanner() {
       <QrReader
         delay={delay}
         style={previewStyle}
-        facingMode='user'
+        facingMode='environment'
         onError={(err)=>handleError(err)}
         lagacyMode={true}
         onScan={(res) => {
