@@ -77,7 +77,9 @@ function App() {
   }, []);
   return (
     <div>
-      {isJsQr?(<JsQr />):(<ReactQrScanner/>)}
+      {/* {isJsQr?(<JsQr />):( */}
+      <ReactQrScanner/>
+      {/* )} */}
       {/* <Camera /> */}
       {/* <ReactQrScanner/> */}
       {/* <JsQr /> */}
