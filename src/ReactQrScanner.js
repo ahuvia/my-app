@@ -33,8 +33,7 @@ export default function ReactQrScanner() {
        <br></br>
        <br></br>
        <br></br>
-     <p>{result}u</p>
-      <div>sss</div>
+     <p>{result}</p>
      </div>
     </div>
   );
