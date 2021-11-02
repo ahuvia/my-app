@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import QrReader from "react-scan-qr";
+// import QrReader from "react-scan-qr";
 import ReactQrScanner from "./ReactQrScanner";
-import jsQR from "jsqr";
-import JsQr from "./JsQr";
-import JsQR2 from "./jsQR2";
+// import jsQR from "jsqr";
+// import JsQr from "./JsQr";
+// import JsQR2 from "./jsQR2";
 // import { useTorchLight } from "@blackbox-vision/use-torch-light";
 import Torch2 from "./Torch2";
 import ScanQr from "./camera/ScanQr";
