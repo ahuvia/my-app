@@ -34,6 +34,7 @@ export default function ReactQrScanner() {
        <br></br>
        <br></br>
      <p>{result}</p>
+     <h1>09:25</h1>
      </div>
     </div>
   );
