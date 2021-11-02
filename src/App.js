@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 // import QrReader from "react-scan-qr";
 import ReactQrScanner from "./ReactQrScanner";
-// import jsQR from "jsqr";
-// import JsQr from "./JsQr";
+ import jsQR from "jsqr";
+ import JsQr from "./JsQr";
 // import JsQR2 from "./jsQR2";
 // import { useTorchLight } from "@blackbox-vision/use-torch-light";
 import Torch2 from "./Torch2";
@@ -16,7 +16,7 @@ const tiny = require("@ahuvia/tiny");
 
 function App() {
   const [data, setData] = useState("Not Found");
-  // const [isJsQr, setIsJsQr] = useState(jsQR? true: false)
+ const [isJsQr, setIsJsQr] = useState(jsQR? true: false)
 
   const handleError = (err) => {
     console.error(err);
@@ -77,9 +77,9 @@ function App() {
   }, []);
   return (
     <div>
-      {/* {isJsQr?(<JsQr />):( */}
+      {isJsQr?(<JsQr />):(
       <ReactQrScanner/>
-      {/* )} */}
+      )}
       {/* <Camera /> */}
       {/* <ReactQrScanner/> */}
       {/* <JsQr /> */}
