@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import QrReader from "react-qr-scanner";
+import QrReader from "react-qr-reader";
 
 export default function ReactQrScanner() {
   const [delay, setdelay] = useState(100);
