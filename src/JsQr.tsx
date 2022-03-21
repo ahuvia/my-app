@@ -25,7 +25,7 @@ export default function JsQr() {
       advanced: [{torch: torch}]
     };
 
-    const mediaStream = await navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: ( "environment"? "environment": "user")}});
+    const mediaStream = await navigator.mediaDevices.getUserMedia({ audio: false, video: true});
     const track = mediaStream.getVideoTracks()[0];
     console.log( track.getSettings())
     
@@ -128,7 +128,6 @@ export default function JsQr() {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <h3>JSQR</h3>
       <video id="videoo" 
        style={{ width: "auto" }}
        ></video>
