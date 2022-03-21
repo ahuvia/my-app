@@ -126,7 +126,7 @@ export default function JsQr() {
   return (
     <div style={{ textAlign: "center" }}>
       <h3>JSQR</h3>
-      <video id="videoo"
+      <video id="videoo" autoPlay playsInline muted
        style={{ width: "auto" }}
        ></video>
        <button  className="switch" >פנס</button>
