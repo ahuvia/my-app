@@ -35,7 +35,7 @@ export default function JsQr() {
     // videoTag.width = 290;
     videoTag.setAttribute("autoplay", "");
     videoTag.setAttribute("muted", "");
-    videoTag.setAttribute("playsinline", "");
+    videoTag.setAttribute("playsinline", "true");
     // if ("srcObject" in videoTag) {
     videoTag.srcObject = mediaStream;
     
