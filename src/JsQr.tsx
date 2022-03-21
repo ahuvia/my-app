@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import jsQR from "jsqr";
 export default function JsQr() {
   const [torch, setTorch] = useState(false)
-  const [qr, setqr] = useState("zuzu");
+  const [qr, setqr] = useState("זוזו");
   const captureArea = {
     x: 1,
     y: 1,
@@ -25,7 +25,7 @@ export default function JsQr() {
       advanced: [{torch: torch}]
     };
 
-    const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
+    const mediaStream = await navigator.mediaDevices.getUserMedia({ audio: false, video: true});
     const track = mediaStream.getVideoTracks()[0];
     console.log( track.getSettings())
     
