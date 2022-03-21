@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import jsQR from "jsqr";
 export default function JsQr() {
   const [torch, setTorch] = useState(false)
-  const [qr, setqr] = useState("asddsaddasdadas");
+  const [qr, setqr] = useState("zuzu");
   const captureArea = {
     x: 1,
     y: 1,
