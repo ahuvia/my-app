@@ -9,7 +9,7 @@ export default function BarcodeDecoder() {
         setView('Barcode Detector supported!');
       
         // create new detector
-        var barcodeDetector = new BarcodeDetector({formats: ['code_39', 'codabar', 'ean_13']});
+        // var barcodeDetector = new BarcodeDetector({formats: ['code_39', 'codabar', 'ean_13']});
       }
   return (
     <div>{view}</div>

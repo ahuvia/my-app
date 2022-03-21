@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import jsQR from "jsqr";
 export default function JsQr() {
   const [torch, setTorch] = useState(false)
-  const [qr, setqr] = useState("");
+  const [qr, setqr] = useState("asddsaddasdadas");
   const captureArea = {
     x: 1,
     y: 1,
@@ -18,8 +18,8 @@ export default function JsQr() {
       video: { 
         facingMode: ( "environment"? "environment": "user"),
          zoom: 2.0,
-         width: 700,//{ min: 1024, ideal: 1280, max: 1920 },
-         height: 700,// { min: 576, ideal: 720, max: 1080 },
+         width: 400,//{ min: 1024, ideal: 1280, max: 1920 },
+         height: 400,// { min: 576, ideal: 720, max: 1080 },
       optimizationMode:'detail',
       frameRate: 90},
       advanced: [{torch: torch}]
@@ -116,7 +116,7 @@ export default function JsQr() {
       if (qrCode) {
         console.log(qrCode);
         setqr(qrCode.data);
-        mediaStream.getVideoTracks()[0].stop();
+        // mediaStream.getVideoTracks()[0].stop();
         // mediaStream.getTracks().forEach(track => track.stop())
       }
     }, 100);
@@ -129,7 +129,8 @@ export default function JsQr() {
       <video id="videoo"
        style={{ width: "auto" }}
        ></video>
-       <button  className="switch" >פנסס</button>
+       <button  className="switch" >פנס</button>
+       <div>{qr}</div>
     </div>
   );
 }
