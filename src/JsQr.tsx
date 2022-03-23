@@ -3,6 +3,7 @@ import jsQR from "jsqr";
 export default function JsQr() {
   const [torch, setTorch] = useState(false)
   const [qr, setqr] = useState("זוזוו");
+  let mediaStream : MediaStream;
   const captureArea = {
     x: 1,
     y: 1,
@@ -24,10 +25,12 @@ export default function JsQr() {
       frameRate: 90},
       advanced: [{torch: torch}]
     };
-
-    const mediaStream = await navigator.mediaDevices.getUserMedia({video: {facingMode: {
-      exact: "environment"
-    }}});
+try{
+   mediaStream = await navigator.mediaDevices.getUserMedia({video: {facingMode:"environment"}});
+}catch(e:any){
+alert("לא הצלחנו לגשת למצלמה"+ e.message)
+}
+    
     const track = mediaStream.getVideoTracks()[0];
     console.log( track.getSettings())
     
@@ -60,26 +63,14 @@ export default function JsQr() {
       const btn = document.querySelector(".switch") as HTMLElement;
       btn.addEventListener("click", function () {
         state = !state;
-         //@ts-ignore
-        // document.getElementById('video').srcObject.getVideoTracks()[0].applyConstraints({ advanced: [{ torch: state }] });
-      setTorch(!torch)
+       setTorch(!torch)
         track.applyConstraints({
           //@ts-ignore
           advanced: [{ torch: state }],
         });
       });
     });
-  // track.applyConstraints({
-  //    //@ts-ignore
-  //    advanced: [{ torch: torch }],
-  //  });
   
- 
-    // } else {
-    //   videoTag.src = URL.createObjectURL(mediaStream);
-    // }
-
-    // const canvasTag = document.getElementById("canvass");
     var canvasTag = document.createElement("canvas");
     canvasTag.width = 350;
     canvasTag.height = 350;
@@ -94,18 +85,7 @@ export default function JsQr() {
         (window.screen.width / 100) * 80,
         (window.screen.width / 100) * 80
       );
-      // ctx.drawImage(videoTag, 1, 1, 349, 349);
-      // ctx.strokeStyle = "red";
-
-      // ctx.strokeRect(
-      //   captureArea.x,
-      //   captureArea.y,
-      //   captureArea.width,
-      //   captureArea.height
-      // );
-    // }, 100);
-
-    // setInterval(() => {
+   
       let imageData = canvasTag
         .getContext("2d")!
         .getImageData(
@@ -130,7 +110,7 @@ export default function JsQr() {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <div>22/03/22 14:03</div>
+      <div>23/03/22 10:55</div>
       <video id="videoo" 
        style={{ width: "auto" }}
        ></video>
