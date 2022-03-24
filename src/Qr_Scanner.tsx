@@ -26,7 +26,7 @@ export default function Qr_Scanner() {
 
     useEffect(() => {
         video()
-    }, [cameraId])
+    }, [setcameraId])
     
 
     const video = async ()=>{
