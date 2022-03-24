@@ -31,6 +31,8 @@ export default function Qr_Scanner() {
 
     const video = async ()=>{
         mediaStream = await navigator.mediaDevices.getUserMedia({video: {deviceId : cameraId}});
+          //@ts-ignore
+        document.getElementById('video').srcObject.getVideoTracks()[0].applyConstraints({ video: {deviceId : cameraId}});
         const videoTag = document.getElementById("video") as HTMLVideoElement;
     videoTag.autoplay = true;
     videoTag.height = 290;
@@ -47,11 +49,12 @@ export default function Qr_Scanner() {
     
   return (
     <div>
-        <div>Qr_Scanner</div>
+        <div>12:00</div>
           <select
               onChange={e => {
                 const value = e.target.value
                 setcameraId( value)
+                alert(value)
               }}
             >
               {devices.map((deviceInfo : any, index) => (
