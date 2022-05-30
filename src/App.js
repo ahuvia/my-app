@@ -13,8 +13,8 @@ function App() {
       {/* <ReactQrReader/> */}
       {/* <Torch/> */}
       {/* <BarcodeDecoder/> */}
-      {/* <JsQr/> */}
-      <Qr_Scanner/>
+      <JsQr/>
+      {/* <Qr_Scanner/> */}
     </div>
   );
 }

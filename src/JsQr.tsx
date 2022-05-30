@@ -18,7 +18,7 @@ export default function JsQr() {
     const constraints = {
       video: { 
         facingMode: ( "environment"? "environment": "user"),
-         zoom: 2.0,
+         zoom: 1.0,
          width: 400,//{ min: 1024, ideal: 1280, max: 1920 },
          height: 400,// { min: 576, ideal: 720, max: 1080 },
       optimizationMode:'detail',
@@ -26,7 +26,7 @@ export default function JsQr() {
       advanced: [{torch: torch}]
     };
 try{
-   mediaStream = await navigator.mediaDevices.getUserMedia({video: {facingMode:"environment"}});
+   mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
 }catch(e:any){
 alert("לא הצלחנו לגשת למצלמה"+ e.message)
 }
