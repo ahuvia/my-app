@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import jsQR from "jsqr";
 export default function JsQr() {
+  let date = new Date().toLocaleString()
+
   const [torch, setTorch] = useState(false)
   const [qr, setqr] = useState("זוזוו");
   let mediaStream : MediaStream;
@@ -110,7 +112,8 @@ alert("לא הצלחנו לגשת למצלמה"+ e.message)
 
   return (
     <div style={{ textAlign: "center" }}>
-      <div>23/03/22 10:55</div>
+      <div>{date}</div>
+  
       <video id="videoo" 
        style={{ width: "auto" }}
        ></video>
