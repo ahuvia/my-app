@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Marker, MapContainer, Popup, TileLayer, useMapEvents } from "react-leaflet";
+import { Marker, MapContainer, Popup, TileLayer, useMapEvents, useMap } from "react-leaflet";
 
 const Map = () => {
   const [lat, setLat] = useState(32.168143114188624);
   const [lon, setlon] = useState(35.23642820541842);
-  const [position, setPosition] = useState(null)
   useEffect(() => {
     getLocation();
   }, []);
+
  
   const getLocation = () => {
     return navigator.geolocation.watchPosition((res)=>{
-        console.log(res)
+        console.log(res)      
         setLat(res.coords.longitude)
         setlon(res.coords.longitude)
     }, (err)=>{
@@ -24,7 +24,7 @@ const Map = () => {
     });
   };
 
-//   let position = [32.168143114188624, 35.23642820541842];
+   let position = [32.168143114188624, 35.23642820541842];
   return (
     <div>
       <MapContainer
@@ -37,12 +37,12 @@ const Map = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {/* <Marker position={[lat,lon]}>
+        <Marker position={[lat,lon]} >
           <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
-        </Marker> */}
-        <LocationMarker />
+        </Marker>
+        {/* <LocationMarker /> */}
       </MapContainer>
     </div>
   );
