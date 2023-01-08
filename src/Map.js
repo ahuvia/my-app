@@ -16,7 +16,7 @@ const Map = () => {
         setlon(res.coords.longitude)
     }, (err)=>{
         console.log(err)
-        // alert(err.message)
+         alert(err.message)
     }, {
       enableHighAccuracy: true,
       maximumAge: 10000,
