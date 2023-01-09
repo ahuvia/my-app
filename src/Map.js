@@ -4,6 +4,7 @@ import { Marker, MapContainer, Popup, TileLayer, useMapEvents, useMap } from "re
 const Map = () => {
   const [lat, setLat] = useState(32.168143114188624);
   const [lon, setlon] = useState(35.23642820541842);
+  const [pos, setPos] = useState({lat:lat,lon:lon});
   useEffect(() => {
     getLocation();
   }, []);
@@ -14,6 +15,8 @@ const Map = () => {
         console.log(res)      
         setLat(res.coords.longitude)
         setlon(res.coords.longitude)
+        setPos({lat:res.coords.latitude,lon: res.coords.longitude})
+        // alert('lon:'+res.coords.longitude + ' lat:'+res.coords.latitude)
     }, (err)=>{
         console.log(err)
          alert(err.message)
@@ -24,12 +27,14 @@ const Map = () => {
     });
   };
 
-   let position = [32.168143114188624, 35.23642820541842];
   return (
     <div>
+      <div style={{position:"10000", textAlign:"center"}}>
+        lat:{lat} lon:{lon}
+        </div>
       <MapContainer
-        style={{ height: "100vh", width: "100wh" }}
-        center={[lat,lon]}
+        style={{ height: "85vh", width: "100wh" }}
+        center={pos}
         zoom={15}
         scrollWheelZoom={false}
       >
@@ -37,7 +42,7 @@ const Map = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[lat,lon]} >
+        <Marker position={pos} >
           <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
