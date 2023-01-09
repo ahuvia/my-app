@@ -21,7 +21,7 @@ const Map = () => {
         console.log(err)
          alert(err.message)
     }, {
-      enableHighAccuracy: false,
+      enableHighAccuracy: true,
       maximumAge: 100000,
       timeout: 10000,
     });
@@ -30,7 +30,7 @@ const Map = () => {
   return (
     <div>
       <div style={{position:"10000", textAlign:"center"}}>
-        lat:{lat} lon:{lon}
+        latt:{lat} lon:{lon}
         </div>
       <MapContainer
         style={{ height: "85vh", width: "100wh" }}
