@@ -21,8 +21,8 @@ const Map = () => {
         console.log(err)
          alert(err.message)
     }, {
-      enableHighAccuracy: true,
-      maximumAge: 10000,
+      enableHighAccuracy: false,
+      maximumAge: 100000,
       timeout: 10000,
     });
   };
