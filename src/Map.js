@@ -35,7 +35,7 @@ const Map = () => {
       <MapContainer
         style={{ height: "85vh", width: "100wh" }}
         center={pos}
-        zoom={15}
+        zoom={9}
         scrollWheelZoom={false}
       >
         <TileLayer
