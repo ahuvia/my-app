@@ -134,7 +134,7 @@ alert("לא הצלחנו לגשת למצלמה"+ e.message)
       <video id="videoo" 
        style={{ width: "auto" }}
        ></video>
-       <button  className="switch" >פנס</button>
+       <button  className="switch" >פנסס</button>
        <div>{qr}</div>
     </div>
   );
