@@ -12,15 +12,27 @@ export default function JsQr() {
     width: 289,
     height: 289,
   };
- 
+ const as = async () =>{
+  let a = await navigator.mediaDevices.enumerateDevices();
+  console.log(a)
+ }
   useEffect(() => {
     webcam();
   }, []);
-
   const webcam = async () => {
-    const constraints = {
+    const constraints1 = {
       video: { 
-        facingMode: navigator.maxTouchPoints > 10 ? {exact :"environment"} : "environment",
+        facingMode:  {exact :"environment"},
+         zoom: 1.0,
+         width: 400,//{ min: 1024, ideal: 1280, max: 1920 },
+         height: 400,// { min: 576, ideal: 720, max: 1080 },
+      optimizationMode:'detail',
+      frameRate: 90},
+      advanced: [{torch: torch}]
+    };
+    const constraints2 = {
+      video: { 
+        facingMode:  "environment",
          zoom: 1.0,
          width: 400,//{ min: 1024, ideal: 1280, max: 1920 },
          height: 400,// { min: 576, ideal: 720, max: 1080 },
@@ -29,7 +41,11 @@ export default function JsQr() {
       advanced: [{torch: torch}]
     };
 try{
-   mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
+   try{
+    mediaStream = await navigator.mediaDevices.getUserMedia(constraints1);
+   }catch(err){
+    mediaStream = await navigator.mediaDevices.getUserMedia(constraints2);
+   } 
 }catch(e:any){
 alert("לא הצלחנו לגשת למצלמה"+ e.message)
 }
