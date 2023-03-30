@@ -18,6 +18,9 @@ export default function JsQr() {
  }
   useEffect(() => {
     webcam();
+    return ()=>{
+      mediaStream?.getVideoTracks()[0].stop();
+    }
   }, []);
   const webcam = async () => {
     const constraints1 = {
