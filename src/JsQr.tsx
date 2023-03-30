@@ -54,15 +54,15 @@ alert("לא הצלחנו לגשת למצלמה"+ e.message)
     console.log( track.getSettings())
     
     const videoTag = document.getElementById("videoo") as HTMLVideoElement;
-   // videoTag.autoplay = true;
+    videoTag.autoplay = true;
     // videoTag.height = 290;
     // videoTag.width = 290;
     //@ts-ignore
-    // videoTag.setAttribute("autoplay", true);
-    // //@ts-ignore
-    // videoTag.setAttribute("muted", true);
-    // //@ts-ignore
-    // videoTag.setAttribute("playsinline", true);
+    videoTag.setAttribute("autoplay", true);
+    //@ts-ignore
+    videoTag.setAttribute("muted", true);
+    //@ts-ignore
+    videoTag.setAttribute("playsinline", true);
     // if ("srcObject" in videoTag) {
     videoTag.srcObject = mediaStream;
     
@@ -131,10 +131,10 @@ alert("לא הצלחנו לגשת למצלמה"+ e.message)
     <div style={{ textAlign: "center" }}>
       <div>{date}</div>
   
-      <video id="videoo" playsInline ={true} autoPlay={true} muted={true}
+      <video id="videoo" 
        style={{ width: "auto" }}
        ></video>
-       <button  className="switch" >פנס</button>
+       <button  className="switch" >פנסס</button>
        <div>{qr}</div>
     </div>
   );
